@@ -187,11 +187,11 @@ export function Home() {
 						Click Me!!
 					</Button>
 				</Panel>
-				<Panel style={width} bordered header="Get Token (POST)">
+				{/* <Panel style={width} bordered header="Get Token (POST)">
 					<Button color="violet" onClick={getToken}>
 						Click Me!!
 					</Button>
-				</Panel>
+				</Panel> */}
 				<Panel style={width} bordered header="Update Poreception (PUT)">
 					<Button color="violet" onClick={uptPoreception}>
 						Click Me!!
