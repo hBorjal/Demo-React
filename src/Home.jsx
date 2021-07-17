@@ -203,7 +203,7 @@ export function Home() {
 					</Button>
 				</Panel>
 			</FlexboxGrid>
-			<ExcelFile filename="Screens" element={<Button appearance="ghost" color="green">Download xls</Button>}>
+			<ExcelFile filename="Screens" element={<Button color="green">Download xls</Button>}>
                 <ExcelSheet data={screen} name="Screen data">
                     <ExcelColumn label="Id" value="ScreenId"/>
                     <ExcelColumn label="Screen Name" value="ScreenName"/>
