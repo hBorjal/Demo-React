@@ -178,27 +178,27 @@ export function Home() {
 			<FlexboxGrid style={{marginTop: '8%'}} justify="space-around">
 				<Panel style={width} bordered header="Get Screens by App Name">
 					<Input type='text' value={nameApp} onChange={(e) => setnameApp(e)} size="md" placeholder="Name application"/>
-					<Button style={{marginTop: '4.5%'}} appearance="ghost" onClick={getApp}>
+					<Button style={{marginTop: '4.5%'}} color="violet" onClick={getApp}>
 						Click Me!!
 					</Button>
 				</Panel>
 				<Panel style={width} bordered header="Insert Log UNUS (POST)">
-					<Button appearance="ghost" onClick={insApp}>
+					<Button color="violet" onClick={insApp}>
 						Click Me!!
 					</Button>
 				</Panel>
 				<Panel style={width} bordered header="Get Token (POST)">
-					<Button appearance="ghost" onClick={getToken}>
+					<Button color="violet" onClick={getToken}>
 						Click Me!!
 					</Button>
 				</Panel>
 				<Panel style={width} bordered header="Update Poreception (PUT)">
-					<Button appearance="ghost" onClick={uptPoreception}>
+					<Button color="violet" onClick={uptPoreception}>
 						Click Me!!
 					</Button>
 				</Panel>
 				<Panel style={width} bordered header="Delete Discrepancy Proforma (DELETE)">
-					<Button appearance="ghost" onClick={delDiscrepancyProf}>
+					<Button color="violet" onClick={delDiscrepancyProf}>
 						Click Me!!
 					</Button>
 				</Panel>
