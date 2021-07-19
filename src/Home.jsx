@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Panel, Input, FlexboxGrid, Table, Alert } from 'rsuite';
+import { Button, Panel, Input, FlexboxGrid, Table } from 'rsuite';
 import axios from 'axios';
 import ReactExport from "react-export-excel";
 
@@ -11,9 +11,9 @@ export function Home() {
 	const [nameApp, setnameApp] = useState('');
 	const [screen, setScreen] = useState([]);
 	const [loading, setLoading] = useState(false);
-	const { Column, HeaderCell, Cell, Pagination } = Table;
+	const { Column, HeaderCell, Cell } = Table;
 	async function getToken(){
-		var url = "https://cotemardev.prod.apimanagement.us10.hana.ondemand.com:443/IDMApi/Authenticate";
+		var url = process.env.REACT_APP_API_ULR_IDM+ "Authenticate";
 		var obj = {
 			"Username" : "hborjal",
 			"Password" : "M3FNaWpab3ErR1U9",
@@ -31,7 +31,6 @@ export function Home() {
             return response;
         })
         .catch(error => {
-			console.log(error)
             return error;
         })
 		if(res.status === 200) {
@@ -41,7 +40,7 @@ export function Home() {
 		}
 	}
 	async function getTokenCIB(){
-		var url = "https://cotemardev.prod.apimanagement.us10.hana.ondemand.com:443/IDMCFDev/Authenticate";
+		var url = process.env.REACT_APP_API_ULR_IDM + "Authenticate";
 		var obj = {
 			"Username" : "hborjal",
 			"Password" : "M3FNaWpab3ErR1U9",
@@ -69,7 +68,7 @@ export function Home() {
 	async function getApp(){
 		setLoading(true);
 		var token = await getToken();
-		var url = "https://cotemardev.prod.apimanagement.us10.hana.ondemand.com:443/IDMCFDev/Screens/GetScreenByNameApplication";
+		var url = process.env.REACT_APP_API_ULR_IDM+"Screens/GetScreenByNameApplication";
 		const resp = await axios.get(url, {
 			headers: {
 				'Authorization' : 'Bearer ' + token.access_token,
@@ -95,7 +94,7 @@ export function Home() {
 	}
 	async function uptPoreception(){
 		var token = await getTokenCIB();
-		var url = "https://cotemardev.prod.apimanagement.us10.hana.ondemand.com:443/APICIB/poreception";
+		var url = process.env.REACT_APP_API_ULR_IDM + "poreception";
 		var obj = [{"Ebeln":"50469549","EstatusPedidoId":3}];
 		const resp = await axios.put(url, JSON.stringify(obj),{
 			headers: {
@@ -118,8 +117,7 @@ export function Home() {
 	}
 	async function delDiscrepancyProf(){
 		var token = await getTokenCIB();
-		console.log(token)
-		var url = "https://cotemardev.prod.apimanagement.us10.hana.ondemand.com:443/APICIB/discrepancycommentsorder/3";
+		var url = process.env.REACT_APP_API_ULR_IDM + "discrepancycommentsorder/4";
 		const resp = await axios.delete(url, {
 			headers: {
 				'Authorization' : 'Bearer ' + token.access_token,
@@ -141,7 +139,7 @@ export function Home() {
 	}
 	async function insApp(){
 		var token = await getToken();
-		var url = "https://cotemardev.prod.apimanagement.us10.hana.ondemand.com:443/IDMCFDev/Log/CreateLogUnusSync";
+		var url = process.env.REACT_APP_API_ULR_IDM + "Log/CreateLogUnusSync";
 		var obj = {
 			Application: "Demo React",
 			Module: "Module One",
